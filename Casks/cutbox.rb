@@ -1,5 +1,5 @@
 cask "cutbox" do
-  version "1.4.15"
+  version "1.4.16"
 
   sha256 "761a68fb89dfafb1ce3aced8392720eb57c43ecc3c741e5ede150c5a8f720bb7"
 
