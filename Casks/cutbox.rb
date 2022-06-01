@@ -1,7 +1,6 @@
 cask "cutbox" do
-  version "1.4.16"
-
-  sha256 "761a68fb89dfafb1ce3aced8392720eb57c43ecc3c741e5ede150c5a8f720bb7"
+  version "1.4.18"
+  sha256 "9d4c88f7c584946b10d5aa469836a3b0f21e426128f52cf6d5dcece9a67e15ac"
 
   url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox.dmg"
   name "cutbox"
