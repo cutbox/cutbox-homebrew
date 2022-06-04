@@ -3,7 +3,7 @@ class Cutbox < Formula
   homepage "https://cutbox.github.io"
   version "1.4.19"
   url "https://github.com/cutbox/CutBox/archive/refs/tags/#{version}.tar.gz"
-  sha256 "194df197b0caafc2d93aa25d7a3034119160a3f01baf08f8b6cead5f"
+  sha256 "e9f79b284d1c80fdd941ed37b36786f528fc1b9600a34eb7f4ebf59ac9afb948"
   license "GPL3"
 
   depends_on "cocoapods"
