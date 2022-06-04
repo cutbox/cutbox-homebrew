@@ -21,9 +21,12 @@ class Cutbox < Formula
 
       cp -R #{prefix}/CutBox.app /Applications/
 
-      alternatively symlink the app to /Applications (note: this won't be found Spotlight)
+      alternatively symlink the app to /Applications
+      (note: this won't be found Spotlight)
 
       ln -s #{prefix}/CutBox.app /Applications/
+
+      *** IMPORTANT ***
 
       After copying to /Applications (before running CutBox) open
 
