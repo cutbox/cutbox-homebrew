@@ -1,0 +1,22 @@
+#!/usr/bin/env zsh
+
+show_usage() {
+    echo "Usage: $0 </path/to/CutBox.dmg> <version>"
+    exit 1
+}
+
+if [[ "$1" == *"CutBox.dmg" && -f "$1" ]]
+then
+    SHA=$(sha224sum "$1" | awk '{printf $1}')
+else
+    show_usage
+fi
+
+if [[ "$2" =~ ([0-9]*\.){3} ]]
+then
+    VER="$2"
+else
+    show_usage
+fi
+
+VER=$VER SHA=$SHA mo templates/Cask.cutbox.rb.mustache
