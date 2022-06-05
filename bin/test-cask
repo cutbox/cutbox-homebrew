@@ -1,0 +1,3 @@
+#!/bin/sh
+
+brew fetch --cask Casks/cutbox.rb

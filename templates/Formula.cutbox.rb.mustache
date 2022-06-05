@@ -21,16 +21,23 @@ class Cutbox < Formula
 
       cp -R #{prefix}/CutBox.app /Applications/
 
-      alternatively symlink the app to /Applications (note: this won't be found Spotlight)
+      alternatively symlink the app to /Applications
+      (note: this won't be found Spotlight)
 
       ln -s #{prefix}/CutBox.app /Applications/
 
-      After copying to /Applications (before running CutBox) open
+      *** IMPORTANT ***
 
-      System Preferences > Security & Privacy > Privacy
+      After copying to /Applications (before running CutBox)
 
-      Add and check on, CutBox to the "Accessibility" and "Input Monitoring" lists, so
-      it can trigger a paste action.
+      Open System Preferences > Security & Privacy > Privacy
+
+      Add CutBox to both:  "Accessibility" and "Input Monitoring".
+
+      This is so it can trigger a paste action.
+
+      After you've added CutBox to these lists,
+      you can start CutBox and enjoy.
     EOS
   end
 end

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+brew fetch --formula Formula/cutbox.rb

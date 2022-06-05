@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
-show_usage() {
-    echo "Usage: $0 <version>"
+show_usage_error() {
+    echo "Usage: $0 <version>" >&2
     exit 1
 }
 
@@ -9,10 +9,10 @@ if [[ "$1" =~ ([0-9]*\.){3} ]]
 then
     VER="$1"
     wget -q https://github.com/cutbox/CutBox/archive/refs/tags/${VER}.tar.gz
-    SHA=$(sha224sum "$VER.tar.gz" | awk '{printf $1}')
-    rm *tar.gz
+    SHA=$(sha256sum "$VER.tar.gz" | awk '{printf $1}')
+    rm -f *tar.gz
 else
-    show_usage
+    show_usage_error
 fi
 
 VER=$VER SHA=$SHA mo templates/Formula.cutbox.rb.mustache

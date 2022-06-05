@@ -8,4 +8,21 @@ cask "cutbox" do
   homepage "https://cutbox.github.io"
 
   app "CutBox.app"
+
+  def caveats
+    <<~EOD
+      *** IMPORTANT ***
+
+      Before running CutBox!
+
+      Open System Preferences > Security & Privacy > Privacy
+
+      Add CutBox to both:  "Accessibility" and "Input Monitoring".
+
+      This is so it can trigger a paste action.
+
+      After you've added CutBox to these lists,
+      you can start CutBox and enjoy.
+    EOD
+  end
 end

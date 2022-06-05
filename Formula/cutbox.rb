@@ -1,9 +1,9 @@
 class Cutbox < Formula
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
-  version "1.4.19"
+  version "1.4.20"
   url "https://github.com/cutbox/CutBox/archive/refs/tags/#{version}.tar.gz"
-  sha256 "e9f79b284d1c80fdd941ed37b36786f528fc1b9600a34eb7f4ebf59ac9afb948"
+  sha256 "2e2c0de83ab840a69b7c73f2bbe27ccc19984a858e162fba09443c7237e180b2"
   license "GPL3"
 
   depends_on "cocoapods"
@@ -28,12 +28,16 @@ class Cutbox < Formula
 
       *** IMPORTANT ***
 
-      After copying to /Applications (before running CutBox) open
+      After copying to /Applications (before running CutBox)
 
-      System Preferences > Security & Privacy > Privacy
+      Open System Preferences > Security & Privacy > Privacy
 
-      Add and check on, CutBox to the "Accessibility" and "Input Monitoring" lists, so
-      it can trigger a paste action.
+      Add CutBox to both:  "Accessibility" and "Input Monitoring".
+
+      This is so it can trigger a paste action.
+
+      After you've added CutBox to these lists,
+      you can start CutBox and enjoy.
     EOS
   end
 end
