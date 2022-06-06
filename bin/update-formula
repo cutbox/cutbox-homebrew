@@ -15,4 +15,4 @@ else
     show_usage_error
 fi
 
-VER=$VER SHA=$SHA mo templates/Formula.cutbox.rb.mustache
+VER=$VER SHA=$SHA mo templates/Formula.cutbox.mustache.rb

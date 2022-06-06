@@ -23,6 +23,15 @@ cask "cutbox" do
 
       After you've added CutBox to these lists,
       you can start CutBox and enjoy.
+
+      *** First Run ***
+
+      You'll need to tell MacOS to allow CutBox to run, start the
+      app and press OK at the prompt. Then go to...
+
+      System Preferences > Security & Privacy > General
+
+      Click "Allow", then "Open" to allow CutBox to run.
     EOD
   end
 end
