@@ -15,6 +15,8 @@ cask "cutbox" do
 
       Before running CutBox!
 
+      $ open -b com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane
+
       Open System Preferences > Security & Privacy > Privacy
 
       Add CutBox to both:  "Accessibility" and "Input Monitoring".
@@ -29,7 +31,9 @@ cask "cutbox" do
       You'll need to tell MacOS to allow CutBox to run, start the
       app and press OK at the prompt. Then go to...
 
-      System Preferences > Security & Privacy > General
+      $ open -b com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane
+
+      i.e. System Preferences > Security & Privacy > General
 
       Click "Allow", then "Open" to allow CutBox to run.
     EOD

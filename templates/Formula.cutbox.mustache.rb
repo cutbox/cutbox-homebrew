@@ -30,7 +30,9 @@ class Cutbox < Formula
 
       After copying to /Applications (before running CutBox)
 
-      Open System Preferences > Security & Privacy > Privacy
+      $ open -b com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane
+
+      i.e. System Preferences > Security & Privacy > Privacy
 
       Add CutBox to both:  "Accessibility" and "Input Monitoring".
 
