@@ -1,6 +1,6 @@
 cask "cutbox" do
-  version "1.4.21"
-  sha256 "e5fb49bfcd2b269f898509e9ef9c8026388f34dfff4259114a83ff05525635c1"
+  version "1.4.22"
+  sha256 "e6622c2119fcf9d4f1a080069a05a46b25bf3cb7b4f860d98adfb46f30b78f95"
 
   url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox.dmg"
   name "cutbox"
@@ -15,7 +15,9 @@ cask "cutbox" do
 
       Before running CutBox!
 
-      Open System Preferences > Security & Privacy > Privacy
+      $ open "x-apple.systempreferences:com.apple.preference.security?Privacy"
+
+      i.e. System Preferences > Security & Privacy > Privacy
 
       Add CutBox to both:  "Accessibility" and "Input Monitoring".
 
@@ -29,7 +31,9 @@ cask "cutbox" do
       You'll need to tell MacOS to allow CutBox to run, start the
       app and press OK at the prompt. Then go to...
 
-      System Preferences > Security & Privacy > General
+      $ open "x-apple.systempreferences:com.apple.preference.security?General"
+
+      i.e. System Preferences > Security & Privacy > General
 
       Click "Allow", then "Open" to allow CutBox to run.
     EOD

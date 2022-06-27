@@ -5,6 +5,8 @@ show_usage_error() {
     exit 1
 }
 
+project_root="$(dirname $0)/../"
+
 if [[ "$1" =~ ([0-9]*\.){3} ]]
 then
     VER="$1"
@@ -15,4 +17,4 @@ else
     show_usage_error
 fi
 
-VER=$VER SHA=$SHA mo templates/Cask.cutbox.mustache.rb
+VER=$VER SHA=$SHA mo templates/Cask.cutbox.mustache.rb | tee "$project_root/Casks/cutbox.rb"
