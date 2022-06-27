@@ -1,9 +1,9 @@
 class Cutbox < Formula
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
-  version "1.4.21"
+  version "1.4.22"
   url "https://github.com/cutbox/CutBox/archive/refs/tags/#{version}.tar.gz"
-  sha256 "1e9386f90c5017ccfded4e03370ddbaa1f5545ff3f4779686d5ed8d3fdd10a3f"
+  sha256 "6515bf8fecc1aa403906bb94853ed6cef9931c3543dc810d2dc8745a0faea37c"
   license "GPL3"
 
   depends_on "cocoapods"
@@ -30,7 +30,9 @@ class Cutbox < Formula
 
       After copying to /Applications (before running CutBox)
 
-      Open System Preferences > Security & Privacy > Privacy
+      $ open -b com.apple.systempreferences /System/Library/PreferencePanes/Security.prefPane
+
+      i.e. System Preferences > Security & Privacy > Privacy
 
       Add CutBox to both:  "Accessibility" and "Input Monitoring".
 
