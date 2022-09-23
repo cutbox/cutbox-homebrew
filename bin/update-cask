@@ -9,7 +9,7 @@ project_root="$(dirname $0)/../"
 
 if [[ "$1" != "" ]]; then
     export VER="$1"
-    wget -q https://github.com/cutbox/CutBox/releases/download/${VER}/CutBox.dmg
+    wget -q https://github.com/cutbox/CutBox/releases/download/${VER}/CutBox-${VER}.dmg
     if [[ -f CutBox.dmg  ]]; then
       export SHA=$(sha256sum "CutBox.dmg" | awk '{printf $1}')
       rm -f CutBox.dmg
