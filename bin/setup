@@ -1,10 +1,4 @@
 #!/bin/sh
-
 echo "Install dependencies..."
 
 brew install openssl wget curl
-
-echo "installing mo (mustache for bash)"
-curl -sSL https://git.io/get-mo -o /usr/local/bin/mo
-
-chmod +x /usr/local/bin/mo

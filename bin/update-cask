@@ -17,4 +17,4 @@ else
     show_usage_error
 fi
 
-VER=$VER SHA=$SHA mo templates/Cask.cutbox.mustache.rb | tee "$project_root/Casks/cutbox.rb"
+VER=$VER SHA=$SHA envsubst < templates/Cask.cutbox.mustache.rb | tee "$project_root/Casks/cutbox.rb"
