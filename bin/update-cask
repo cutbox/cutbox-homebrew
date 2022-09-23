@@ -21,7 +21,7 @@ if [[ "$1" != "" ]]; then
     if [[ -f CutBox.dmg  ]]; then
       export SHA=$(sha256sum "CutBox.dmg" | awk '{printf $1}')
       rm -f CutBox.dmg
-      envsubst < templates/Cask.cutbox.template.rb | tee "$project_root/Casks/cutbox.rb"
+      envsubst < templates/Cask.cutbox.template.rb > "$project_root/Casks/cutbox.rb"
     else
         echo "CutBox does not have a version: $VER"
     fi

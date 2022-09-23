@@ -21,7 +21,7 @@ if [[ "$1" != "" ]]; then
     if  [[ -f "$VER.tar.gz" ]]; then
       export SHA=$(sha256sum "$VER.tar.gz" | awk '{printf $1}')
       rm -f *tar.gz
-      envsubst < templates/Formula.cutbox.template.rb | tee "$project_root/Formula/cutbox.rb"
+      envsubst < templates/Formula.cutbox.template.rb > "$project_root/Formula/cutbox.rb"
     else
         echo "CutBox does not have a version: $VER"
     fi
