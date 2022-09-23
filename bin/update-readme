@@ -9,7 +9,7 @@ project_root="$(dirname $0)/../"
 
 if [[ "$1" != "" ]]
 then
-    VER="$1" envsubst < templates/Cask.cutbox.template.rb | tee "$project_root/README.md"
+    VER="$1" envsubst < templates/README.template.md | tee "$project_root/README.md"
 else
     show_usage_error
 fi
