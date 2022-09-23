@@ -1,0 +1,15 @@
+#!/bin/sh
+
+show_usage_error() {
+    echo "Usage: $0 <version>" >&2
+    exit 1
+}
+
+project_root="$(dirname $0)/../"
+
+if [[ "$1" =~ ([0-9]*\.){3} ]]
+then
+    VER="$1" envsubst < templates/Cask.cutbox.template.rb | tee "$project_root/README.md"
+else
+    show_usage_error
+fi

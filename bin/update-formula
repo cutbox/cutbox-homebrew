@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/sh
 
 show_usage_error() {
     echo "Usage: $0 <version>" >&2
@@ -7,14 +7,16 @@ show_usage_error() {
 
 project_root="$(dirname $0)/../"
 
-if [[ "$1" =~ ([0-9]*\.){3} ]]
-then
-    VER="$1"
+if [[ "$1" != "" ]]; then
+    export VER="$1"
     wget -q https://github.com/cutbox/CutBox/archive/refs/tags/${VER}.tar.gz
-    SHA=$(sha256sum "$VER.tar.gz" | awk '{printf $1}')
-    rm -f *tar.gz
+    if  [[ -f "$VER.tar.gz" ]]; then
+      export SHA=$(sha256sum "$VER.tar.gz" | awk '{printf $1}')
+      rm -f *tar.gz
+      envsubst < templates/Formula.cutbox.template.rb | tee "$project_root/Formula/cutbox.rb"
+    else
+        echo "CutBox does not have a version: $VER"
+    fi
 else
     show_usage_error
 fi
-
-VER=$VER SHA=$SHA envsubst < templates/Formula.cutbox.mustache.rb | tee "$project_root/Formula/cutbox.rb"
