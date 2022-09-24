@@ -1,3 +1,9 @@
 #!/bin/sh
 
-brew fetch --cask Casks/cutbox.rb
+if brew fetch --cask Casks/cutbox.rb; then
+  echo "Casks/cutbox.rb - ok"
+  exit 0
+else
+  echo "There was a problem with Casks/cutbox.rb"
+  exit 1
+fi
