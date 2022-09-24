@@ -1,8 +1,8 @@
 cask "cutbox" do
-  version "1.4.22"
-  sha256 "e6622c2119fcf9d4f1a080069a05a46b25bf3cb7b4f860d98adfb46f30b78f95"
+  version "1.4.23"
+  sha256 "d3b65a637f4b820bed9291496e4055a86926ae8402cfefbecdee1ae1f0ad7287"
 
-  url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox.dmg"
+  url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox-#{version}.dmg"
   name "cutbox"
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
@@ -36,6 +36,17 @@ cask "cutbox" do
       i.e. System Preferences > Security & Privacy > General
 
       Click "Allow", then "Open" to allow CutBox to run.
+
+      *** Allowing Software ***
+
+      If you'd prefer to install any software you want to, without Apple's
+      messages popping up at all, you can run:
+
+      $ sudo spctl --master-disable
+
+      Check System preferences, Security, you'll see that software can be
+      Installed from anywhere. Note that all new software will still need
+      YOUR permission to run.
     EOD
   end
 end
