@@ -2,7 +2,7 @@
 
 sha256sum () {
     if [[ -x `which sha256sum` ]]; then
-       sha256sum $1
+        sha256sum $1
     else
         shasum -a 256 $1
     fi
@@ -17,10 +17,11 @@ project_root="$(dirname $0)/../"
 
 if [[ "$1" != "" ]]; then
     export VER="$1"
-    wget -q https://github.com/cutbox/CutBox/releases/download/${VER}/CutBox-${VER}.dmg
-    if [[ -f CutBox.dmg  ]]; then
-      export SHA=$(sha256sum "CutBox.dmg" | awk '{printf $1}')
-      rm -f CutBox.dmg
+    export CUTBOX_DMG="CutBox-${VER}.dmg"
+    wget -q https://github.com/cutbox/CutBox/releases/download/${VER}/${CUTBOX_DMG}
+    if [[ -f $CUTBOX_DMG ]]; then
+      export SHA=$(sha256sum $CUTBOX_DMG | awk '{printf $1}')
+      rm -f $CUTBOX_DMG
       envsubst < templates/Cask.cutbox.template.rb > "$project_root/Casks/cutbox.rb"
     else
         echo "CutBox does not have a version: $VER"

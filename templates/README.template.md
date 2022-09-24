@@ -26,4 +26,4 @@ Formula
 brew install --formula cutbox
 ```
 
-VERSION: 1.4.22
+VERSION: ${VER}

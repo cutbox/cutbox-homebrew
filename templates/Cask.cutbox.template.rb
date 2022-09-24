@@ -36,6 +36,17 @@ cask "cutbox" do
       i.e. System Preferences > Security & Privacy > General
 
       Click "Allow", then "Open" to allow CutBox to run.
+
+      *** Allowing Software ***
+
+      If you'd prefer to install any software you want to, without Apple's
+      messages popping up at all, you can run:
+
+      $ sudo spctl --master-disable
+
+      Check System preferences, Security, you'll see that software can be
+      Installed from anywhere. Note that all new software will still need
+      YOUR permission to run.
     EOD
   end
 end
