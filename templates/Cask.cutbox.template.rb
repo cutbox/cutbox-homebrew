@@ -2,7 +2,7 @@ cask "cutbox" do
   version "${VER}"
   sha256 "${SHA}"
 
-  url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox.dmg"
+  url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox-#{version}.dmg"
   name "cutbox"
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
