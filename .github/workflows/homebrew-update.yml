@@ -1,0 +1,39 @@
+name: CutBox release update
+
+on:
+  workflow_dispatch:
+    inputs:
+      release:
+        required: true
+        description: "CutBox version to release via Homebrew"
+
+jobs:
+  build:
+    name: CutBox release update
+    runs-on: macos-11
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Update CutBox homebrew
+        run : |
+          RELEASE="${{ github.event.inputs.release }}"
+          BREW_VERSION=$(grep "VERSION:" README.md | awk '{ print $2 }')
+          if [[ "$BREW_VERSION" != "$RELEASE" ]]; then
+            bin/update-readme "$RELEASE" || echo "Update README failed" && exit 1
+            bin/update-formula "$RELEASE" || echo "Update Formula failed" && exit 1
+            bin/update-cask "$RELEASE" || echo "Update Cask failed" && exit 1
+            bin/test-cask || echo "Test Cask failed" && exit 1
+            bin/test-formula || echo "Test Formula failed" && exit 1
+
+            echo "Release CutBox ${CUTBOX_VERSION} via homebrew"
+            git add \
+              README.md \
+              Formula/cutbox.rb \
+              Casks/cutbox.rb || echo "git add failed" && exit 1
+            git commit -m "Update Homebrew: CutBox ${CUTBOX_VERSION}" || echo "git commit failed" && exit 1
+            git tag "${CUTBOX_VERSION}" || echo "git tag failed" && exit 1
+            git push --follow-tags || echo "git push failed"
+          fi
