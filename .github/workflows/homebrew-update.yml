@@ -1,11 +1,17 @@
 name: CutBox release update
 
 on:
+  repository_dispatch:
+    types: ["trigger_event"]
+
   workflow_dispatch:
     inputs:
       release:
         required: true
         description: "CutBox version to release via Homebrew"
+
+env:
+  RELEASE: ${{ github.event.client_payload.release || github.event.inputs.release }}
 
 jobs:
   build:
@@ -19,7 +25,7 @@ jobs:
 
       - name: Update CutBox homebrew
         run : |
-          RELEASE="${{ github.event.inputs.release }}"
+          RELEASE="${{ env.RELEASE }}"
           BREW_VERSION=$(grep "VERSION:" README.md | awk '{ print $2 }')
           if [[ "$BREW_VERSION" != "$RELEASE" ]]; then
             bin/update-readme "$RELEASE" || echo "Update README failed" && exit 1
