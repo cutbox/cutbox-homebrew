@@ -61,4 +61,5 @@ jobs:
           git tag "${RELEASE}"
       - name: Git push
         run: |
-          git push --follow-tags
+          git push
+          git push --tags
