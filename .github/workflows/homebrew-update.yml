@@ -27,6 +27,10 @@ jobs:
           echo "LATEST ON BREW: $BREW_VERSION"
           if [[ "$BREW_VERSION" != "$RELEASE" ]]; then
             echo "Updating brew formula and cask to CutBox $RELEASE"
+          else
+            echo "Already released $RELEASE"
+            exit 1
+          fi
       - name: Update readme
         run: |
           bin/update-readme "$RELEASE"
