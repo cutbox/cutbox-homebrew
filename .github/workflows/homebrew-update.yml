@@ -58,7 +58,7 @@ jobs:
           git commit -m "Update Homebrew: CutBox ${RELEASE}"
       - name: Git tag
         run: |          
-          git tag -a "${RELEASE}"
+          git tag -m  "${RELEASE}"  -a "${RELEASE}"
       - name: Git push
         run: |
           git push --follow-tags
