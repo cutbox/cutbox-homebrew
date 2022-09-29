@@ -26,4 +26,4 @@ Formula
 brew install --formula cutbox
 ```
 
-VERSION: 1.5.1
+VERSION: 1.5.2
