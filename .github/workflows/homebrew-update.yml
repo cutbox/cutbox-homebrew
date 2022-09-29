@@ -22,41 +22,39 @@ jobs:
 
       - name: Update CutBox homebrew
         run : |
-          RELEASE="${{ env.RELEASE }}"
           echo "RELEASE.......: $RELEASE"
           BREW_VERSION=$(grep "VERSION:" README.md | awk '{ print $2 }')
           echo "LATEST ON BREW: $BREW_VERSION"
           if [[ "$BREW_VERSION" != "$RELEASE" ]]; then
             echo "Updating brew formula and cask to CutBox $RELEASE"
-            echo "- Update readme"
-            bin/update-readme "$RELEASE" || \
-              { echo "Update README failed"; exit 1 }
-            echo "- Update formula"
-            bin/update-formula "$RELEASE" || \
-              { echo "Update Formula failed"; exit 1 }
-            echo "- Update cask"
-            bin/update-cask "$RELEASE" || \
-              { echo "Update Cask failed"; exit 1 }
-            echo "- Test formula"
-            bin/test-formula || \
-              { echo "Test Formula failed"; exit 1 }
-            echo "- Test cask"
-            bin/test-cask || \
-              { echo "Test Cask failed"; exit 1 }
-            echo "Git commit / push"
-            git status -s
-            git add \
-              README.md \
-              Formula/cutbox.rb \
-              Casks/cutbox.rb || \
-                { echo "git add failed"; exit 1 }
-            git commit -m "Update Homebrew: CutBox ${CUTBOX_VERSION}" || \
-              { echo "git commit failed"; exit 1 }
-            git tag "${CUTBOX_VERSION}" || \
-              { echo "git tag failed"; exit 1 }
-            git push --follow-tags || \
-              { echo "git push failed"; exit 1 }
-            echo "Released CutBox ${CUTBOX_VERSION} via homebrew"
-          else
-            echo "Cannot upgrade from: $BREW_VERSION -> $RELEASE"
-          fi
+      - name: Update readme
+        run: |
+          bin/update-readme "$RELEASE"
+      - name: Update formula
+        run: |
+          bin/update-formula "$RELEASE"
+      - name: Update cask
+        run: |
+          bin/update-cask "$RELEASE"
+      - name: Test formula
+        run: |
+          bin/test-formula
+      - name: Test cask
+        run: |
+          bin/test-cask
+      - name: Git add
+        run: |
+          git status -s
+          git add \
+            README.md \
+            Formula/cutbox.rb \
+            Casks/cutbox.rb
+      - name: Git commit
+        run: |
+          git commit -m "Update Homebrew: CutBox ${RELEASE}"
+      - name: Git tag
+        run: |          
+          git tag "${RELEASE}"
+      - name: Git push
+        run: |
+          git push --follow-tags
