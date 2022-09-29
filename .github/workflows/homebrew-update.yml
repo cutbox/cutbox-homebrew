@@ -33,6 +33,7 @@ jobs:
             bin/update-cask "$RELEASE" || echo "Update Cask failed" && exit 1
             bin/test-cask || echo "Test Cask failed" && exit 1
             bin/test-formula || echo "Test Formula failed" && exit 1
+            git status -s
             git add \
               README.md \
               Formula/cutbox.rb \
