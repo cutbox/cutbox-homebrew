@@ -23,9 +23,9 @@ jobs:
       - name: Update CutBox homebrew
         run : |
           RELEASE="${{ env.RELEASE }}"
-          echo 'RELEASE.......: $RELEASE"
+          echo "RELEASE.......: $RELEASE"
           BREW_VERSION=$(grep "VERSION:" README.md | awk '{ print $2 }')
-          echo 'LATEST ON BREW: $BREW_VERSION"
+          echo "LATEST ON BREW: $BREW_VERSION"
           if [[ "$BREW_VERSION" != "$RELEASE" ]]; then
             bin/update-readme "$RELEASE" || echo "Update README failed" && exit 1
             bin/update-formula "$RELEASE" || echo "Update Formula failed" && exit 1
