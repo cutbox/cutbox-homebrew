@@ -22,8 +22,6 @@ jobs:
 
       - name: Update CutBox homebrew
         run : |
-          bash
-          or_quit() { echo "$1" ; exit ${2:-1} }
           RELEASE="${{ env.RELEASE }}"
           echo "RELEASE.......: $RELEASE"
           BREW_VERSION=$(grep "VERSION:" README.md | awk '{ print $2 }')
@@ -32,32 +30,32 @@ jobs:
             echo "Updating brew formula and cask to CutBox $RELEASE"
             echo "- Update readme"
             bin/update-readme "$RELEASE" || \
-              or_quit "Update README failed"
+              { echo "Update README failed"; exit 1 }
             echo "- Update formula"
             bin/update-formula "$RELEASE" || \
-              or_quit "Update Formula failed"
+              { echo "Update Formula failed"; exit 1 }
             echo "- Update cask"
             bin/update-cask "$RELEASE" || \
-              or_quit "Update Cask failed"
+              { echo "Update Cask failed"; exit 1 }
             echo "- Test formula"
             bin/test-formula || \
-              or_quit "Test Formula failed"
+              { echo "Test Formula failed"; exit 1 }
             echo "- Test cask"
             bin/test-cask || \
-              or_quit "Test Cask failed"
+              { echo "Test Cask failed"; exit 1 }
             echo "Git commit / push"
             git status -s
             git add \
               README.md \
               Formula/cutbox.rb \
               Casks/cutbox.rb || \
-                or_quit "git add failed"
+                { echo "git add failed"; exit 1 }
             git commit -m "Update Homebrew: CutBox ${CUTBOX_VERSION}" || \
-              or_quit "git commit failed"
+              { echo "git commit failed"; exit 1 }
             git tag "${CUTBOX_VERSION}" || \
-              or_quit "git tag failed"
+              { echo "git tag failed"; exit 1 }
             git push --follow-tags || \
-              or_quit "git push failed"
+              { echo "git push failed"; exit 1 }
             echo "Released CutBox ${CUTBOX_VERSION} via homebrew"
           else
             echo "Cannot upgrade from: $BREW_VERSION -> $RELEASE"
