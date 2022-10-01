@@ -1,9 +1,9 @@
 class Cutbox < Formula
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
-  version "1.5.2"
+  version "1.5.3"
   url "https://github.com/cutbox/CutBox/archive/refs/tags/#{version}.tar.gz"
-  sha256 "e7e158acecda620485db49966f571634660bf80e270977a3609e84352756f959"
+  sha256 "92f1abf49e0dd6ac5097c75b87787c82254d396c21d402ec73d1a0f8c0a2cfc9"
   license "GPL3"
 
   depends_on "cocoapods"
