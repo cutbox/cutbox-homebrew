@@ -9,7 +9,7 @@ class Cutbox < Formula
   depends_on "cocoapods"
 
   def install
-    system "bin/build"
+    system "bin/homebrew_build"
     prefix.install "CutBox/build/CutBox.app"
   end
 
