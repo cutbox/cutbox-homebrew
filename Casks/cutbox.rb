@@ -1,13 +1,15 @@
 cask "cutbox" do
-  version "1.5.7"
-  sha256 "67b31f34067bc26230aa5a53c9c6a5754fcac306a27ee0eac34e8fc272f1be25"
+  version "1.5.8"
+  sha256 "6fa1702b996d7634d9031ea1c2425226c5c4d6e25ecc7bd982c657fd158299b8"
 
   url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox-#{version}.dmg"
+
   name "cutbox"
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
 
   app "CutBox.app"
+  binary "cutbox"
 
   def caveats
     <<~EOD

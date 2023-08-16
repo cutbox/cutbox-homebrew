@@ -1,9 +1,9 @@
 class Cutbox < Formula
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
-  version "1.5.7"
+  version "1.5.8"
   url "https://github.com/cutbox/CutBox/archive/refs/tags/#{version}.tar.gz"
-  sha256 "2c728f782f715e0eab43f6ded1f1c0549a31e31fc2881ba28b0ee823fb5cb4d0"
+  sha256 "e0e869781a3523094c9249558bcf8e1ecef17e0acdb12ba56528954c259333bd"
   license "GPL3"
 
   depends_on "cocoapods"
@@ -11,6 +11,10 @@ class Cutbox < Formula
   def install
     system "bin/homebrew_build"
     prefix.install "CutBox/build/CutBox.app"
+
+    # install cli
+    system "make -C cutbox_command build"
+    prefix.install "cutbox_command/build/Release/cutbox"
   end
 
   def caveats
