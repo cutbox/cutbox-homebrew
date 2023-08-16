@@ -11,6 +11,10 @@ class Cutbox < Formula
   def install
     system "bin/homebrew_build"
     prefix.install "CutBox/build/CutBox.app"
+
+    # install cli
+    system "make -C cutbox_command build"
+    prefix.install "cutbox_command/build/Release/cutbox"
   end
 
   def caveats
