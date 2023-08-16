@@ -3,11 +3,13 @@ cask "cutbox" do
   sha256 "${SHA}"
 
   url "https://github.com/cutbox/CutBox/releases/download/#{version}/CutBox-#{version}.dmg"
+
   name "cutbox"
   desc "Clipboard history manager"
   homepage "https://cutbox.github.io"
 
   app "CutBox.app"
+  binary "cutbox"
 
   def caveats
     <<~EOD
