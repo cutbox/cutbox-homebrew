@@ -1,3 +1,9 @@
+> NOTE:  CutBox has been sunset (I no longer use or own a Mac) the best replacement option is to use:
+> # CopyQ
+> https://hluk.github.io/CopyQ/
+
+- - -
+
 # CutBox Homebrew Tap 
 
 Homebrew Cask and Formula for CutBox 
